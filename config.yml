@@ -1,0 +1,11 @@
+db:
+  postgres:
+    host: ${db_postgres_host}
+    port: ${db_postgres_port}
+    user: ${db_postgres_user}
+    password: ${db_postgres_password}
+    dbname: ${db_postgres_dbname}
+
+
+
+  
