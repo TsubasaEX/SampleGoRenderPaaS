@@ -22,6 +22,7 @@ type Config struct {
 			User     string `mapstructure:"user"`
 			Password string `mapstructure:"password"`
 			Dbname   string `mapstructure:"dbname"`
+			SSLMode  string `mapstructure:"sslmode"`
 		} `mapstructure:"postgres"`
 	} `mapstructure:"db"`
 }
@@ -49,6 +50,7 @@ func LoadConfig() (*Config, error) {
 	viper.BindEnv("db.postgres.user", "db_postgres_username")
 	viper.BindEnv("db.postgres.password", "db_postgres_password")
 	viper.BindEnv("db.postgres.dbname", "db_postgres_dbname")
+	viper.BindEnv("db.postgres.sslmode", "db_postgres_sslmode")
 
 	// 3. Alternatively read from config.yml if it exists
 	viper.SetConfigName("config")
@@ -73,12 +75,13 @@ func main() {
 
 	// Build DSN string using loaded config values
 	dsn := fmt.Sprintf(
-		"host=%s port=%d user=%s password=%s dbname=%s sslmode=disable TimeZone=Asia/Taipei",
+		"host=%s port=%d user=%s password=%s dbname=%s sslmode=%s TimeZone=Asia/Taipei",
 		cfg.DB.Postgres.Host,
 		cfg.DB.Postgres.Port,
 		cfg.DB.Postgres.User,
 		cfg.DB.Postgres.Password,
 		cfg.DB.Postgres.Dbname,
+		cfg.DB.Postgres.SSLMode,
 	)
 
 	// Connect to database using GORM

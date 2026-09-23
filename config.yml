@@ -5,6 +5,7 @@ db:
     user: ${db_postgres_user}
     password: ${db_postgres_password}
     dbname: ${db_postgres_dbname}
+    sslmode: ${db_postgres_sslmode}
 
 
 
