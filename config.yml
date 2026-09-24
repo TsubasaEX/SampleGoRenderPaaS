@@ -2,11 +2,12 @@ db:
   postgres:
     host: ${db_postgres_host}
     port: ${db_postgres_port}
-    user: ${db_postgres_user}
+    username: ${db_postgres_username}
     password: ${db_postgres_password}
     dbname: ${db_postgres_dbname}
     sslmode: ${db_postgres_sslmode}
-
-
-
-  
+  redis:
+    host: ${db_redis_host}
+    port: ${db_redis_port}
+    username: ${db_redis_username}
+    password: ${db_redis_password}

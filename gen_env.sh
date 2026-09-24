@@ -8,6 +8,11 @@ db_postgres_username=licensedbadm
 db_postgres_password=1234567
 db_postgres_dbname=licensedb
 db_postgres_sslmode=disable
+
+db_redis_host=10.8.9.50
+db_redis_port=6379
+db_redis_username=""
+db_redis_password=123456
 EOF
 
 echo ".env file generated successfully!"
