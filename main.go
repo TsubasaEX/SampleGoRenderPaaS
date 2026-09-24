@@ -162,7 +162,7 @@ func main() {
 
 	// If connecting to a remote host (like Render), enable TLS
 	// You can check if the host contains "render.com" or just enable it for remote IPs
-	if cfg.DB.Redis.Host != "localhost" && cfg.DB.Redis.Host != "127.0.0.1" {
+	if cfg.DB.Redis.Host != "localhost" && cfg.DB.Redis.Host != "127.0.0.1" && cfg.DB.Redis.Host != "10.8.9.50" {
 		redisOpts.TLSConfig = &tls.Config{
 			InsecureSkipVerify: false,
 		}
