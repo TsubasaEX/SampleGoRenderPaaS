@@ -11,3 +11,4 @@ db:
     port: ${db_redis_port}
     username: ${db_redis_username}
     password: ${db_redis_password}
+    ssl: ${db_redis_ssl}

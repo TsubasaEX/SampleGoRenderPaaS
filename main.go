@@ -37,6 +37,7 @@ type Config struct {
 			Port     int    `mapstructure:"port"`
 			Username string `mapstructure:"username"`
 			Password string `mapstructure:"password"`
+			SSL      bool   `mapstructure:"ssl"`
 		} `mapstructure:"redis"`
 	} `mapstructure:"db"`
 }
@@ -112,6 +113,7 @@ func LoadConfig() (*Config, error) {
 	viper.BindEnv("db.redis.port", "db_redis_port")
 	viper.BindEnv("db.redis.username", "db_redis_username")
 	viper.BindEnv("db.redis.password", "db_redis_password")
+	viper.BindEnv("db.redis.ssl", "db_redis_ssl")
 
 	// 3. Read from config.yml if it exists
 	viper.SetConfigName("config")
@@ -162,7 +164,7 @@ func main() {
 
 	// If connecting to a remote host (like Render), enable TLS
 	// You can check if the host contains "render.com" or just enable it for remote IPs
-	if cfg.DB.Redis.Host != "localhost" && cfg.DB.Redis.Host != "127.0.0.1" && cfg.DB.Redis.Host != "10.8.9.50" {
+	if cfg.DB.Redis.SSL {
 		redisOpts.TLSConfig = &tls.Config{
 			InsecureSkipVerify: false,
 		}

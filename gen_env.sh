@@ -13,6 +13,7 @@ db_redis_host=10.8.9.50
 db_redis_port=6379
 db_redis_username=""
 db_redis_password=123456
+db_redis_ssl=false
 EOF
 
 echo ".env file generated successfully!"

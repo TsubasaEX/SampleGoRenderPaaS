@@ -13,6 +13,7 @@ db_redis_host=oregon-keyvalue.render.com
 db_redis_port=6379
 db_redis_username=red-daq8cb17lnhs73c2ehog
 db_redis_password=WFvOBMC7PqGWFTzpXiPufKbDSF9KCQpt
+db_redis_ssl=true
 EOF
 
 echo ".env file generated successfully!"
